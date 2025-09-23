@@ -1,0 +1,7 @@
+$schema: "1.0"
+name: "common-sql-server-management-studio-21"
+userTasks:
+  - name: ~/winget
+    description: "Microsoft SQLServer Management Studio 21"
+    parameters:
+      package:  Microsoft.SQLServerManagementStudio.21

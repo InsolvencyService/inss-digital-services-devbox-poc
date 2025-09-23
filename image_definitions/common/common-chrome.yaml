@@ -1,0 +1,7 @@
+$schema: "1.0"
+name: "common-chrome"
+userTasks:
+  - name: ~/winget
+    description: "Install Chrome"
+    parameters:
+      package:  Google.Chrome
