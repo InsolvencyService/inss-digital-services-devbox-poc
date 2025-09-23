@@ -1,0 +1,15 @@
+# WinGet configuration file for Postman
+# Schema reference: https://aka.ms/winget-config-reference
+properties:
+  configurationVersion: 1.0
+
+resources:
+  - resource: Microsoft.WinGet.DSC/WinGetPackage
+    id: Postman
+    directives:
+      description: Install Postman silently
+    settings:
+      id: Postman.Postman
+      source: winget
+      installMode: silent
+      ensure: present
