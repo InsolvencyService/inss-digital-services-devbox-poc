@@ -2,8 +2,46 @@ $schema: 1.0
 name: platform-dev-build-windows11-vs2022-pro
 image: microsoftvisualstudio_visualstudioplustools_vs-2022-pro-general-win11-m365-gen2
 tasks:
-  # System context tasks (run with admin privileges)
   - name: winget
     description: "Install Node.js"
     parameters:
       package: OpenJS.NodeJS
+
+  - name: winget
+    description: "Microsoft .NET SDK 10.0 Preview"
+    parameters:
+      package: Microsoft.DotNet.SDK.Preview
+
+  - name: winget
+    description: "Install Microsoft SQLServer 2022 Developer"
+    parameters:
+      package: Microsoft.SQLServer.2022.Developer
+
+  - name: winget
+    description: "Microsoft SQLServer Management Studio 21"
+    parameters:
+      package: Microsoft.SQLServerManagementStudio.21
+ 
+  - name: winget
+    description: "Chrome"
+    parameters:
+      package: Google.Chrome
+      options: --accept-package-agreements --accept-source-agreements
+
+  - name: winget
+    description: "Notepad++"
+    parameters:
+      package: Notepad++.Notepad++
+      options: --accept-package-agreements --accept-source-agreements
+
+  - name: winget
+    description: "Install Postman"
+    parameters:
+      package: Postman.Postman
+      options: --accept-package-agreements --accept-source-agreements
+ 
+  - name: git-clone
+    description: "Clone INSS Digital Platform POC (user context)"
+    parameters:
+      repositoryUrl: https://github.com/InsolvencyService/inss-digital-platform-poc.git
+      directory: C:\repos
