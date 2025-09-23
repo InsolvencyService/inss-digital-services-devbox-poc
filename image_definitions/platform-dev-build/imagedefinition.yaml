@@ -7,4 +7,3 @@ tasks:
     description: "Install Node.js"
     parameters:
       package: OpenJS.NodeJS
-    runAsUser: false
