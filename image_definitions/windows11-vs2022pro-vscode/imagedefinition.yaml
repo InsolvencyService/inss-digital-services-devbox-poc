@@ -1,0 +1,16 @@
+$schema: 1.0
+name: windows11-vs2022pro-vscode
+image: microsoftwindowsdesktop_windows-ent-cpc_win11-24h2-ent-cpc
+tasks:
+  - name: winget
+    description: "Install Visual Studio 2022 Professional with workloads"
+    parameters:
+      configurationFile: "C:\\WinGetConfig\\vs2022-pro-config.dsc.yaml"
+      downloadUrl: "https://raw.githubusercontent.com/InsolvencyService/inss-digital-services-devbox-poc/main/image_definitions/windows11-vs2022pro-vscode/vs2022-pro-config.dsc.yaml"
+
+  - name: winget
+    description: "Install Visual Studio Code with extensions"
+    parameters:
+      configurationFile: "C:\\WinGetConfig\\vscode-config.dsc.yaml"
+      downloadUrl: "https://raw.githubusercontent.com/InsolvencyService/inss-digital-services-devbox-poc/main/image_definitions/windows11-vs2022pro-vscode/vscode-config.dsc.yaml"
+    
