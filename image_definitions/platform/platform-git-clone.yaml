@@ -1,9 +1,0 @@
-$schema: 1.0
-name: platform-poc
-image: microsoftvisualstudio_visualstudioplustools_vs-2022-pro-general-win11-m365-gen2
-tasks:
-  - name: ~/git-clone
-    description: "Clone INSS Digital Platform POC"
-    parameters:
-      repositoryUrl: https://github.com/InsolvencyService/inss-digital-platform-poc.git
-      directory: C:\repos
