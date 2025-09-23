@@ -31,49 +31,29 @@ tasks:
     description: "Chrome"
     parameters:
       package: Google.Chrome
+      options: --accept-package-agreements --accept-source-agreements
     runAsUser: false
 
   - name: winget
     description: "Notepad++"
     parameters:
       package: Notepad++.Notepad++
+      options: --accept-package-agreements --accept-source-agreements
     runAsUser: false
 
-  # User context tasks (run as regular user)
   - name: winget
     description: "Install Postman"
     parameters:
       package: Postman.Postman
+      options: --accept-package-agreements --accept-source-agreements
     runAsUser: true
-  
+ 
+
+  # User context tasks (run as regular user)
   - name: git-clone
     description: "Clone INSS Digital Platform POC (user context)"
     parameters:
       repositoryUrl: https://github.com/InsolvencyService/inss-digital-platform-poc.git
       directory: C:\repos
     runAsUser: true            
-
-  - name: powershell  
-    description: "Configure Git user settings with current user info"
-    parameters:
-      command: |
-        try {
-          $userName = $env:USERNAME
-          $userEmail = if ($env:USERPRINCIPALNAME) { 
-            $env:USERPRINCIPALNAME 
-          } else { 
-            "$env:USERNAME@insolvencyservice.gov.uk" 
-          }
-          
-          git config --global user.name $userName
-          git config --global user.email $userEmail
-          
-          Write-Host "✅ Git configured successfully with:"
-          Write-Host "  Name: $userName"
-          Write-Host "  Email: $userEmail"
-        }
-        catch {
-          Write-Error "❌ Failed to configure Git: $($_.Exception.Message)"
-          exit 1
-        }
-    runAsUser: true
+    
