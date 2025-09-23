@@ -55,10 +55,29 @@ tasks:
     runAsUser: true            
 
   - name: powershell  
-    description: "Configure Git user settings"
+    description: "Configure Git user settings with current user info"
     parameters:
       command: |
-        git config --global user.name "Developer"
-        git config --global user.email "dev@company.com"
+        try {
+          $userName = $env:USERNAME
+          $userEmail = if ($env:USERPRINCIPALNAME) { 
+            $env:USERPRINCIPALNAME 
+          } else { 
+            "$env:USERNAME@insolvencyservice.gov.uk" 
+          }
+          
+          git config --global user.name $userName
+          git config --global user.email $userEmail
+          
+          Write-Host "✅ Git configured successfully with:"
+          Write-Host "  Name: $userName"
+          Write-Host "  Email: $userEmail"
+        }
+        catch {
+          Write-Error "❌ Failed to configure Git: $($_.Exception.Message)"
+          exit 1
+        }
     runAsUser: true
+
+    
     
