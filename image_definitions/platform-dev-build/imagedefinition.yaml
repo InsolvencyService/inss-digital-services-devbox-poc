@@ -37,11 +37,9 @@ tasks:
     parameters:
       configurationFile: "C:\\WinGetConfig\\postman-config.yaml"
       downloadUrl: "https://raw.githubusercontent.com/InsolvencyService/inss-digital-services-devbox-poc/main/image_definitions/platform-dev-build/postman-config.yaml"
-      runAsUser: true
  
   - name: git-clone
     description: "Clone INSS Digital Platform POC (user context)"
     parameters:
       repositoryUrl: https://github.com/InsolvencyService/inss-digital-platform-poc.git
       directory: C:\repos
-      runAsUser: true
