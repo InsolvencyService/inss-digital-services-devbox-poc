@@ -9,45 +9,44 @@ tasks:
       package: OpenJS.NodeJS
     runAsUser: false
 
-  - name: ~/winget
-    description: "Microsoft .NET SDK 10.0 Preview "
+  - name: winget
+    description: "Microsoft .NET SDK 10.0 Preview"
     parameters:
       package: Microsoft.DotNet.SDK.Preview
     runAsUser: false
 
-  - name: ~/winget
+  - name: winget
     description: "Install Microsoft SQLServer 2022 Developer"
     parameters:
-      package:  Microsoft.SQLServer.2022.Developer
+      package: Microsoft.SQLServer.2022.Developer
     runAsUser: false
 
-  - name: ~/winget
+  - name: winget
     description: "Microsoft SQLServer Management Studio 21"
     parameters:
-      package:  Microsoft.SQLServerManagementStudio.21
+      package: Microsoft.SQLServerManagementStudio.21
     runAsUser: false
  
-  - name: ~/winget
+  - name: winget
     description: "Chrome"
     parameters:
       package: Google.Chrome
     runAsUser: false
 
-  - name: ~/winget
+  - name: winget
     description: "Notepad++"
     parameters:
       package: Notepad++.Notepad++
     runAsUser: false
 
-
   # User context tasks (run as regular user)
-  - name: ~/winget
+  - name: winget
     description: "Install Postman"
     parameters:
       package: Postman.Postman
     runAsUser: true
   
-  - name: ~/git-clone
+  - name: git-clone
     description: "Clone INSS Digital Platform POC (user context)"
     parameters:
       repositoryUrl: https://github.com/InsolvencyService/inss-digital-platform-poc.git
@@ -78,6 +77,3 @@ tasks:
           exit 1
         }
     runAsUser: true
-
-    
-    
