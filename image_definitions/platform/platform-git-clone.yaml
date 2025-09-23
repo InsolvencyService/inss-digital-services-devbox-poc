@@ -1,0 +1,8 @@
+$schema: "1.0"
+name: "platform-git-clone"
+userTasks:
+  - name: ~/git-clone
+    description: "Clone INSS Digital Platform POC"
+    parameters:
+      repositoryUrl: https://github.com/InsolvencyService/inss-digital-platform-poc.git
+      directory: C:\repos

@@ -1,0 +1,12 @@
+$schema: "1.0"
+name: "common-dotnet-10"
+userTasks:
+  - name: ~/winget
+    description: "Microsoft .NET SDK 10.0 Preview"
+    parameters:
+      package:  Microsoft.DotNet.SDK.Preview
+
+  - name: ~/powershell
+    description: "Enable Visual Studio to use .NET SDK previews"
+    parameters:
+      script: '[System.Environment]::SetEnvironmentVariable("DOTNET_USE_PREVIEW_SDK", "true", "Machine")'

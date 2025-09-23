@@ -1,0 +1,7 @@
+$schema: "1.0"
+name: "common-sql-server-2022-dev"
+userTasks:
+  - name: ~/winget
+    description: "Install Microsoft SQLServer 2022 Developer"
+    parameters:
+      package:  Microsoft.SQLServer.2022.Developer
