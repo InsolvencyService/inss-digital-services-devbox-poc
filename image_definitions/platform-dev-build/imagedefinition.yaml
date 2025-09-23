@@ -2,19 +2,82 @@ $schema: 1.0
 name: platform-dev-build-windows11-vs2022-pro
 image: microsoftvisualstudio_visualstudioplustools_vs-2022-pro-general-win11-m365-gen2
 tasks:
-  - name: ~/git-clone
-    description: "Clone INSS Digital Platform POC"
-    parameters:
-      repositoryUrl: https://github.com/InsolvencyService/inss-digital-platform-poc.git
-      directory: C:\repos
+  # System context tasks (run with admin privileges)
   - name: winget
+    description: "Install Node.js"
     parameters:
       package: OpenJS.NodeJS
+    runAsUser: false
+
   - name: ~/winget
-    description: "Microsoft .NET SDK 10.0 Preview"
+    description: "Microsoft .NET SDK 10.0 Preview "
     parameters:
-      package:  Microsoft.DotNet.SDK.Preview
+      package: Microsoft.DotNet.SDK.Preview
+    runAsUser: false
+
+  - name: ~/winget
+    description: "Install Microsoft SQLServer 2022 Developer"
+    parameters:
+      package:  Microsoft.SQLServer.2022.Developer
+    runAsUser: false
+
+  - name: ~/winget
+    description: "Microsoft SQLServer Management Studio 21"
+    parameters:
+      package:  Microsoft.SQLServerManagementStudio.21
+    runAsUser: false
+ 
+  - name: ~/winget
+    description: "Chrome"
+    parameters:
+      package: Google.Chrome
+    runAsUser: false
+
+  - name: ~/winget
+    description: "Notepad++"
+    parameters:
+      package: Notepad++.Notepad++
+    runAsUser: false
+
+
+  # User context tasks (run as regular user)
   - name: ~/winget
     description: "Install Postman"
     parameters:
-      package: Postman.Postman            
+      package: Postman.Postman
+    runAsUser: true
+  
+  - name: ~/git-clone
+    description: "Clone INSS Digital Platform POC (user context)"
+    parameters:
+      repositoryUrl: https://github.com/InsolvencyService/inss-digital-platform-poc.git
+      directory: C:\repos
+    runAsUser: true            
+
+  - name: powershell  
+    description: "Configure Git user settings with current user info"
+    parameters:
+      command: |
+        try {
+          $userName = $env:USERNAME
+          $userEmail = if ($env:USERPRINCIPALNAME) { 
+            $env:USERPRINCIPALNAME 
+          } else { 
+            "$env:USERNAME@insolvencyservice.gov.uk" 
+          }
+          
+          git config --global user.name $userName
+          git config --global user.email $userEmail
+          
+          Write-Host "✅ Git configured successfully with:"
+          Write-Host "  Name: $userName"
+          Write-Host "  Email: $userEmail"
+        }
+        catch {
+          Write-Error "❌ Failed to configure Git: $($_.Exception.Message)"
+          exit 1
+        }
+    runAsUser: true
+
+    
+    
