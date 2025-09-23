@@ -1,0 +1,20 @@
+$schema: 1.0
+name: platform-dev-build-windows11-vs2022-pro
+image: microsoftvisualstudio_visualstudioplustools_vs-2022-pro-general-win11-m365-gen2
+tasks:
+  - name: ~/git-clone
+    description: "Clone INSS Digital Platform POC"
+    parameters:
+      repositoryUrl: https://github.com/InsolvencyService/inss-digital-platform-poc.git
+      directory: C:\repos
+  - name: winget
+    parameters:
+      package: OpenJS.NodeJS
+  - name: ~/winget
+    description: "Microsoft .NET SDK 10.0 Preview"
+    parameters:
+      package:  Microsoft.DotNet.SDK.Preview
+  - name: ~/winget
+    description: "Install Postman"
+    parameters:
+      package: Postman.Postman            

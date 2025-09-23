@@ -1,0 +1,10 @@
+{
+  "name": "platform-dev-build-windows11-vs2022-pro",
+  "publisher": "microsoftvisualstudio",
+  "offer": "visualstudioplustools",
+  "sku": "vs-2022-pro-general-win11-m365-gen2",
+  "osType": "Windows",
+  "version": "latest",
+  "displayName": "Windows 11 with Visual Studio 2022 Professional",
+  "description": "Windows 11 Pro image with Visual Studio 2022 Professional, Git, and development tools pre-installed."
+}
