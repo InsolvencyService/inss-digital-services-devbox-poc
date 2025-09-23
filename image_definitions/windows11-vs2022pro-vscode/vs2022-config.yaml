@@ -1,0 +1,28 @@
+# WinGet DSC configuration for Visual Studio 2022 Professional
+# Version 1.0
+$schema: https://aka.ms/configuration-dsc-schema/0.2
+properties:
+  configurationVersion: 0.2.0
+  ########################################
+  ### INSTALL APPLICATIONS
+  ########################################
+  resources:
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: vs2022pro
+      directives:
+        description: Install Visual Studio 2022 Professional with workloads
+        allowPrerelease: true
+      settings:
+        id: Microsoft.VisualStudio.2022.Professional
+        source: winget
+        ensure: Present
+        useLatest: true
+        override: |
+          --add Microsoft.VisualStudio.Workload.ManagedDesktop 
+          --add Microsoft.VisualStudio.Workload.NetWeb 
+          --add Microsoft.VisualStudio.Workload.Azure 
+          --add Microsoft.VisualStudio.Component.Git 
+          --includeRecommended 
+          --quiet
+
+          
