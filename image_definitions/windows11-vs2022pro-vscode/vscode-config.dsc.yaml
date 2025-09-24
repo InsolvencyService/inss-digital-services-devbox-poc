@@ -3,14 +3,12 @@
 $schema: https://aka.ms/configuration-dsc-schema/0.2
 properties:
   configurationVersion: 0.2.0
-  ########################################
-  ### INSTALL VS CODE AND EXTENSIONS
-  ########################################
   resources:
     - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: vscode
+      id: VSCode
       directives:
         description: Install Visual Studio Code
+        allowPrerelease: true
       settings:
         id: Microsoft.VisualStudioCode
         source: winget
