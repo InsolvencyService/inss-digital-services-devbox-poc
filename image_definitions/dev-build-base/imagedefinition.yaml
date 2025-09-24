@@ -28,15 +28,20 @@ tasks:
     description: "Install Microsoft latest .NET SDK Preview"
     parameters:
       package: Microsoft.DotNet.SDK.Preview
+  - name: winget
+    description: "Install Postman"
+    parameters:
+      package: Postman.Postman
   - name: git-clone
     description: "Clone INSS Digital Platform POC to C:\\repos"
     parameters:
       repositoryUrl: https://github.com/InsolvencyService/inss-digital-platform-poc.git
       directory: C:\repos
 
-userTasks:
-  - name: ~/winget
-    description: "Install Postman"
-    parameters:
-      package: Postman.Postman
+# This works but retrying as a system task instead.
+# userTasks:
+#   - name: ~/winget
+#     description: "Install Postman"
+#     parameters:
+#       package: Postman.Postman
 
