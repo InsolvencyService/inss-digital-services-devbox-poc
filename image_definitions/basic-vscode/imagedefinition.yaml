@@ -14,3 +14,10 @@ tasks:
     parameters:
       repositoryUrl: https://github.com/OrchardCMS/OrchardCore.git
       directory: C:\Workspaces
+
+userTasks:
+  - name: ~/winget
+    parameters:
+      downloadUrl: 'https://raw.githubusercontent.com/microsoft/devcenter-examples/main/devbox-accessibility/DSCSamples/VSInstallAndConfig.dsc.yaml'
+      configurationFile: 'C:\WinGetConfig\VSInstallAndConfig.dsc.yaml'
+      
