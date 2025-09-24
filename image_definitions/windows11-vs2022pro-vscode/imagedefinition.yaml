@@ -1,16 +1,31 @@
+# The configuration files for VSCode and VS2022Pro are hosted in our Azure Blob Storage container
+# They are publicly accessible without authentication.
+# They are successfully downloaded to C:\WinGetConfig on the DevBox VM during image creation.
+
 $schema: 1.0
 name: windows11-vs2022pro-vscode-own-dsc
 image: microsoftwindowsdesktop_windows-ent-cpc_win11-24h2-ent-cpc
 tasks:
-  - name: winget
-    description: "Install Visual Studio 2022 Professional with workloads"
-    parameters:
-      configurationFile: "C:\\WinGetConfig\\vs2022-pro-config.dsc.yaml"
-      downloadUrl: "https://devboxdsc.blob.core.windows.net/dsc-files/vs2022-pro-config.dsc.yaml"
-
-userTasks:
   - name: ~/winget
     description: "Install Visual Studio Code with extensions"
     parameters:
       configurationFile: "C:\\WinGetConfig\\vscode-config.dsc.yaml"
       downloadUrl: "https://devboxdsc.blob.core.windows.net/dsc-files/vscode-config.dsc.yaml"
+  - name: ~/winget
+    description: "Install Visual Studio 2022 Professional with workloads"
+    parameters:
+      configurationFile: "C:\\WinGetConfig\\vs2022-pro-config.dsc.yaml"
+      downloadUrl: "https://devboxdsc.blob.core.windows.net/dsc-files/vs2022-pro-config.dsc.yaml"
+
+# This task executes once the user signs in.
+# The DevBox instance in the portal shows this task as errored 
+# however it completes successfully ot at least VSCode does get installed.
+
+# Attempting to see if it installs using the tasks section........
+
+# userTasks:
+#   - name: ~/winget
+#     description: "Install Visual Studio Code with extensions"
+#     parameters:
+#       configurationFile: "C:\\WinGetConfig\\vscode-config.dsc.yaml"
+#       downloadUrl: "https://devboxdsc.blob.core.windows.net/dsc-files/vscode-config.dsc.yaml"

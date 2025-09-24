@@ -16,39 +16,3 @@ properties:
         source: winget
         ensure: Present
         useLatest: true
-
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: vscode-csharp
-      directives:
-        description: Install C# extension for VS Code
-      settings:
-        id: ms-dotnettools.csharp
-        source: winget
-        ensure: Present
-        
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: vscode-azure-tools
-      directives:
-        description: Install Azure Tools extension pack
-      settings:
-        id: ms-vscode.vscode-node-azure-pack
-        source: winget
-        ensure: Present
-
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: vscode-git-extension
-      directives:
-        description: Install GitLens extension
-      settings:
-        id: eamodio.gitlens
-        source: winget
-        ensure: Present
-
-    - resource: Microsoft.WinGet.DSC/WinGetPackage
-      id: vscode-powershell
-      directives:
-        description: Install PowerShell extension
-      settings:
-        id: ms-vscode.powershell
-        source: winget
-        ensure: Present

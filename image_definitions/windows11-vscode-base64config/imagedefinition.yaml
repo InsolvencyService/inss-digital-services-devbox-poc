@@ -1,3 +1,8 @@
+# Windows 11 with Visual Studio Code
+# This DSC is encoded in base64 and included inline in the imagedefinition.yaml
+# This successfully deploys to the devbox instance and is decoded into C:\WinGetConfig\VSInstallAndConfig.dsc.yaml 
+# however it does not execute therefore vscode is not installed.
+
 $schema: 1.0
 name: windows11-vscode-base64config
 image: microsoftwindowsdesktop_windows-ent-cpc_win11-24h2-ent-cpc
