@@ -1,0 +1,35 @@
+# This image defintion executes successfully, installing vscode and nodejs via winget
+# and cloning the OrchardCore repo into C:\Workspaces
+# These tasks are executed in the context of the system during image creation.
+
+# Note the use of userTasks to run the winget task with a custom configuration file
+# hosted in a public GitHub repo.
+# The user task runs after the user signs in to the DevBox for the first time.
+# The task then isntalls Visual Studio in the context of the user.
+
+# Note: the downloadUrl in the userTask must be publicly accessible without authentication.
+# Browse to the downloadUrl to view the settings for VS.
+# Note when the user signs in starting VS starts the installer. 
+
+$schema: "1.0"
+name: "devbox-customization-sample"
+image: microsoftwindowsdesktop_windows-ent-cpc_win11-24H2-ent-cpc
+
+tasks:
+  - name: ~/winget
+    parameters:
+      package: Microsoft.VisualStudioCode
+  - name: ~/winget
+    parameters:
+      package: OpenJS.NodeJS
+  - name: git-clone
+    description: Clone this repository into C:\Workspaces
+    parameters:
+      repositoryUrl: https://github.com/OrchardCMS/OrchardCore.git
+      directory: C:\Workspaces
+
+userTasks:
+  - name: ~/winget
+    parameters:
+      downloadUrl: 'https://raw.githubusercontent.com/microsoft/devcenter-examples/main/devbox-accessibility/DSCSamples/VSInstallAndConfig.dsc.yaml'
+      configurationFile: 'C:\WinGetConfig\VSInstallAndConfig.dsc.yaml'

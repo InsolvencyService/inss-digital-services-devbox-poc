@@ -1,0 +1,42 @@
+$schema: "1.0"
+name: "dev-build-base"
+image: microsoftwindowsdesktop_windows-ent-cpc_win11-24H2-ent-cpc
+
+tasks:
+  - name: ~/winget
+    parameters:
+      package: Microsoft.VisualStudioCode
+  - name: ~/winget
+    parameters:
+      package: Microsoft.VisualStudio.2022.Professional
+  - name: ~/winget
+    parameters:
+      package: OpenJS.NodeJS
+  - name: ~/winget
+    description: "Install Chrome"
+    parameters:
+      package: Google.Chrome
+  - name: ~/winget
+    description: "Install Notepad++"
+    parameters:
+      package: Notepad++.Notepad++
+  - name: ~/winget
+    description: "Install Azure CLI"
+    parameters:
+      package: Microsoft.AzureCLI
+  - name: winget
+    description: "Install Microsoft latest .NET SDK Preview"
+    parameters:
+      package: Microsoft.DotNet.SDK.Preview
+  - name: git-clone
+    description: "Clone INSS Digital Platform POC to C:\\repos"
+    parameters:
+      repositoryUrl: https://github.com/InsolvencyService/inss-digital-platform-poc.git
+      directory: C:\repos
+
+userTasks:
+  - name: ~/winget
+    description: "Install Postman"
+    parameters:
+      package: Postman.Postman
+

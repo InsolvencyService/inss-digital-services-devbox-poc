@@ -6,45 +6,38 @@ tasks:
     description: "Install Node.js"
     parameters:
       package: OpenJS.NodeJS
-
   - name: winget
     description: "Install Microsoft .NET SDK 10.0 Preview"
     parameters:
       package: Microsoft.DotNet.SDK.Preview
-
   - name: winget
     description: "Install Install Microsoft SQLServer 2022 Developer"
     parameters:
       package: Microsoft.SQLServer.2022.Developer
-
   - name: winget
     description: "Install Microsoft SQLServer Management Studio 21"
     parameters:
       package: Microsoft.SQLServerManagementStudio.21
- 
   - name: winget
     description: "Install Chrome"
     parameters:
       package: Google.Chrome
-
   - name: winget
     description: "Install Notepad++"
     parameters:
       package: Notepad++.Notepad++
-
   - name: winget
     description: "Install Azure CLI"
     parameters:
       package: Microsoft.AzureCLI
-
-  - name: winget
-    description: "Install Postman"
-    parameters:
-      configurationFile: "C:\\WinGetConfig\\postman-config.yaml"
-      downloadUrl: "https://raw.githubusercontent.com/InsolvencyService/inss-digital-services-devbox-poc/main/image_definitions/platform-dev-build/postman-config.yaml"
- 
   - name: git-clone
     description: "Clone INSS Digital Platform POC to C:\\repos"
     parameters:
       repositoryUrl: https://github.com/InsolvencyService/inss-digital-platform-poc.git
       directory: C:\repos
+
+userTasks:
+  - name: ~/winget
+    description: "Install Postman"
+    parameters:
+      package: Postman.Postman
