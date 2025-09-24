@@ -7,8 +7,10 @@ tasks:
     parameters:
       package: Microsoft.VisualStudioCode
   - name: ~/winget
+    description: "Install Visual Studio 2022 Professional with workloads"
     parameters:
-      package: Microsoft.VisualStudio.2022.Professional
+      configurationFile: "C:\\WinGetConfig\\vs2022-pro-config.dsc.yaml"
+      downloadUrl: "https://devboxdsc.blob.core.windows.net/dsc-files/vs2022-pro-config.dsc.yaml"
   - name: ~/winget
     parameters:
       package: OpenJS.NodeJS
@@ -24,11 +26,11 @@ tasks:
     description: "Install Azure CLI"
     parameters:
       package: Microsoft.AzureCLI
-  - name: winget
+  - name: ~/winget
     description: "Install Microsoft latest .NET SDK Preview"
     parameters:
       package: Microsoft.DotNet.SDK.Preview
-  - name: winget
+  - name: ~/winget
     description: "Install Postman"
     parameters:
       package: Postman.Postman
@@ -38,10 +40,9 @@ tasks:
       repositoryUrl: https://github.com/InsolvencyService/inss-digital-platform-poc.git
       directory: C:\repos
 
-# This works but retrying as a system task instead.
-# userTasks:
-#   - name: ~/winget
-#     description: "Install Postman"
-#     parameters:
-#       package: Postman.Postman
+userTasks:
+  - name: ~/winget
+    description: "Install Postman"
+    parameters:
+      package: Postman.Postman
 
