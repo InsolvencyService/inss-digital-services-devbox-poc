@@ -1,0 +1,18 @@
+# WinGet DSC configuration for Visual Studio Code
+# Version 1.0
+$schema: https://aka.ms/configuration-dsc-schema/0.2
+properties:
+  configurationVersion: 0.2.0
+  ########################################
+  ### INSTALL VS CODE AND EXTENSIONS
+  ########################################
+  resources:
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: vscode
+      directives:
+        description: Install Visual Studio Code
+      settings:
+        id: Microsoft.VisualStudioCode
+        source: winget
+        ensure: Present
+        useLatest: true
