@@ -11,11 +11,11 @@ tasks:
     parameters:
       configurationFile: "C:\\WinGetConfig\\vscode-config.dsc.yaml"
       downloadUrl: "https://devboxdsc.blob.core.windows.net/dsc-files/vscode-config.dsc.yaml"
-  # - name: ~/winget
-  #   description: "Install Visual Studio 2022 Professional with workloads"
-  #   parameters:
-  #     configurationFile: "C:\\WinGetConfig\\vs2022-pro-config.dsc.yaml"
-  #     downloadUrl: "https://devboxdsc.blob.core.windows.net/dsc-files/vs2022-pro-config.dsc.yaml"
+  - name: ~/winget
+    description: "Install Visual Studio 2022 Professional with workloads"
+    parameters:
+      configurationFile: "C:\\WinGetConfig\\vs2022-pro-config.dsc.yaml"
+      downloadUrl: "https://devboxdsc.blob.core.windows.net/dsc-files/vs2022-pro-config.dsc.yaml"
 
 # This task executes once the user signs in.
 # The DevBox instance in the portal shows this task as errored 
