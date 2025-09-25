@@ -2,8 +2,8 @@
 
 $schema: "1.0"
 name: "platform-dev-build-base"
-#image: microsoftwindowsdesktop_windows-ent-cpc_win11-24H2-ent-cpc
-image: dev-build-base
+image: microsoftwindowsdesktop_windows-ent-cpc_win11-24H2-ent-cpc
+# image: dev-build-base
 
 tasks:
   - name: git-clone

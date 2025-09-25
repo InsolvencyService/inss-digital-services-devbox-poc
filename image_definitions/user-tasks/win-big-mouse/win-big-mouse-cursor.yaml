@@ -4,8 +4,8 @@ image: microsoftwindowsdesktop_windows-ent-cpc_win11-24H2-ent-cpc
 
 tasks:
   - name: ~/winget
-    description: "Install Visual Studio 2022 Professional with workloads"
+    description: "Install Windows with Large Text and Mouse Cursor"
     parameters:
-      configurationFile: "C:\\WinGetConfig\\big-mouse-cursor.dsc.yaml"
+      configurationFile: "C:\\WinGetConfig\\win-big-mouse-cursor.dsc.yaml"
       downloadUrl: "https://devboxdsc.blob.core.windows.net/dsc-files/win-big-mouse/win-big-mouse-cursor.dsc.yaml"
   
