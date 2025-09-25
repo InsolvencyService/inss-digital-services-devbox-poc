@@ -1,7 +1,7 @@
 # This image definition should run on top of the platform-dev-build-base image
 
 $schema: "1.0"
-name: "platform-dev-build-base"
+name: "platform-dev-build"
 image: microsoftwindowsdesktop_windows-ent-cpc_win11-24H2-ent-cpc
 # image: platform-dev-build-base
 
