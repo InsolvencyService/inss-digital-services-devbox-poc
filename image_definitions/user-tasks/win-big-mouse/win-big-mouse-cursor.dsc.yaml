@@ -2,8 +2,10 @@
 # NOTE: Upload this file to: https://devboxdsc.blob.core.windows.net/dsc-files/win-big-mouse
 # *******************************************************************************************
 
-# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+---
+$schema: https://aka.ms/configuration-dsc-schema/0.2
 properties:
+  configurationVersion: 0.2.0
   resources:
     ### Change Windows Accessibility Settings on Text Size
     - resource: Microsoft.Windows.Setting.Accessibility/Text
@@ -19,6 +21,4 @@ properties:
         description: Set Mouse Pointer Size
         allowPrerelease: true
       settings:
-        PointerSize: 'Large' # 'KeepCurrentValue', 'Normal', 'Large', 'ExtraLarge'  
-
-  configurationVersion: 0.2.0
+        PointerSize: 'Large' # 'KeepCurrentValue', 'Normal', 'Large', 'ExtraLarge'

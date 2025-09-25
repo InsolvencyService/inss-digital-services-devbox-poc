@@ -3,13 +3,14 @@ name: "dev-build-sql"
 image: microsoftwindowsdesktop_windows-ent-cpc_win11-24H2-ent-cpc
 
 tasks:
+  - name: ~/winget
+    description: "Install SQL Server 2022 Developer"
+    parameters:
+      configurationFile: "C:\\WinGetConfig\\sql-server-developer-config.dsc.yaml"
+      downloadUrl: "https://devboxdsc.blob.core.windows.net/dsc-files/sql-server-developer/sql-server-developer-config.dsc.yaml"
+
   - name: winget
     description: "Install Microsoft SQLServer Management Studio 21"
     parameters:
       package: Microsoft.SQLServerManagementStudio.21
 
-userTasks:
-  - name: winget
-    description: "Install Microsoft SQLServer 2022 Developer"
-    parameters:
-      package: Microsoft.SQLServer.2022.Developer

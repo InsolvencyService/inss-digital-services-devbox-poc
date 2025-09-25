@@ -7,6 +7,11 @@ image: microsoftwindowsdesktop_windows-ent-cpc_win11-24H2-ent-cpc
 
 userTasks:
   - name: ~/winget
+    description: "Install Microsoft SQLServer 2022 Developer"
+    parameters:
+      package: Microsoft.SQLServer.2022.Developer
+
+  - name: ~/winget
     description: "Install Postman"
     parameters:
       package: Postman.Postman
