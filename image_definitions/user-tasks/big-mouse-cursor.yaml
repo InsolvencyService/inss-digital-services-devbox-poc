@@ -1,0 +1,11 @@
+$schema: "1.0"
+name: "win-large-mouse-cursor"
+image: microsoftwindowsdesktop_windows-ent-cpc_win11-24H2-ent-cpc
+
+tasks:
+  - name: ~/winget
+    description: "Install Windows with large mouse cursor"
+    parameters:
+      configurationFile: "C:\\WinGetConfig\\big-mouse-cursor.dsc.yaml"
+      downloadUrl: "https://devboxdsc.blob.core.windows.net/dsc-files/big-mouse-cursor.dsc.yaml"
+  
