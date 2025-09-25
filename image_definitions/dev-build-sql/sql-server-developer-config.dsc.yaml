@@ -11,10 +11,10 @@ properties:
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: sqlDeveloper
       directives:
+        securityContext: elevated        
         description: Install SQL Server 2022 Developer
       settings:
         id: Microsoft.SQLServer.2022.Developer
         source: winget
         ensure: Present
         useLatest: true
-        arguments: "--silent  --accept-package-agreements --accept-source-agreements"
