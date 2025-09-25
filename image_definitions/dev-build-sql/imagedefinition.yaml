@@ -1,0 +1,13 @@
+$schema: "1.0"
+name: "dev-build-sql"
+image: microsoftwindowsdesktop_windows-ent-cpc_win11-24H2-ent-cpc
+
+tasks:
+  - name: winget
+    description: "Install Install Microsoft SQLServer 2022 Developer"
+    parameters:
+      package: Microsoft.SQLServer.2022.Developer
+  - name: winget
+    description: "Install Microsoft SQLServer Management Studio 21"
+    parameters:
+      package: Microsoft.SQLServerManagementStudio.21

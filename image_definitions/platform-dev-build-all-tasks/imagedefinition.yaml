@@ -10,7 +10,7 @@ tasks:
     description: "Install Visual Studio 2022 Professional with workloads"
     parameters:
       configurationFile: "C:\\WinGetConfig\\vs2022-pro-config.dsc.yaml"
-      downloadUrl: "https://devboxdsc.blob.core.windows.net/dsc-files/vs2022-pro-config.dsc.yaml"
+      downloadUrl: "https://devboxdsc.blob.core.windows.net/dsc-files/dev-build-base/vs2022-pro-config.dsc.yaml"
   - name: ~/winget
     parameters:
       package: OpenJS.NodeJS
