@@ -3,13 +3,6 @@ name: "dev-build-vs"
 image: microsoftwindowsdesktop_windows-ent-cpc_win11-24H2-ent-cpc
 
 tasks:
-  - name: choco
-    description: "Install Visual Studio Code using Chocolatey"
-    parameters:
-      package: vscode
-      version: latest
-      options: "--yes"  # Automatically confirm installation
-
   - name: powershell
     description: "Install Azure PowerShell Module"
     parameters:
