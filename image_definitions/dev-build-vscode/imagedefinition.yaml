@@ -4,8 +4,13 @@ image: microsoftwindowsdesktop_windows-ent-cpc_win11-24H2-ent-cpc
 
 tasks:
   - name: ~/winget
-    description: "Install Visual Studio 2022 Professional with workloads"
+    description: "Install VSCode"
     parameters:
       configurationFile: "C:\\WinGetConfig\\vscode-and-config.dsc.yaml"
       downloadUrl: "https://devboxdsc.blob.core.windows.net/dsc-files/dev-build-vscode/vscode-and-config.dsc.yaml"
-  
+  - name: choco
+    description: install azure functions core tools 
+    parameters:
+      package: azure-functions-core-tools
+      switches: /x64  
+      

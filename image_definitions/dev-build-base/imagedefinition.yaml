@@ -6,26 +6,37 @@ tasks:
   - name: ~/winget
     parameters:
       package: Microsoft.VisualStudioCode
+
   - name: ~/winget
     description: "Install Visual Studio 2022 Professional with workloads"
     parameters:
       configurationFile: "C:\\WinGetConfig\\vs2022-pro-config.dsc.yaml"
       downloadUrl: "https://devboxdsc.blob.core.windows.net/dsc-files/dev-build-base/vs2022-pro-config.dsc.yaml"
+
+  - name: winget
+    description: "Install Microsoft SQLServer Management Studio 21"
+    parameters:
+      package: Microsoft.SQLServerManagementStudio.21      
+
   - name: ~/winget
     parameters:
       package: OpenJS.NodeJS
+
   - name: ~/winget
     description: "Install Chrome"
     parameters:
       package: Google.Chrome
+
   - name: ~/winget
     description: "Install Notepad++"
     parameters:
       package: Notepad++.Notepad++
+
   - name: ~/winget
     description: "Install Azure CLI"
     parameters:
       package: Microsoft.AzureCLI
+
   - name: ~/winget
     description: "Install Microsoft latest .NET SDK Preview"
     parameters:
