@@ -3,9 +3,15 @@ name: "dev-build-vs"
 image: microsoftwindowsdesktop_windows-ent-cpc_win11-24H2-ent-cpc
 
 tasks:
-  - name: ~/winget
-    description: "Install Visual Studio 2022 Professional with workloads"
+  - name: choco
+    description: "Install Visual Studio Code using Chocolatey"
     parameters:
-      configurationFile: "C:\\WinGetConfig\\vs2022-pro-allow-preview-config.dsc.yaml"
-      downloadUrl: "https://devboxdsc.blob.core.windows.net/dsc-files/dev-build-vs/vs2022-pro-allow-preview-config.dsc.yaml"
-  
+      package: vscode
+      version: latest
+      options: "--yes"  # Automatically confirm installation
+
+  - name: powershell
+    description: "Install Azure PowerShell Module"
+    parameters:
+      command: |
+        Install-Module -Name Az -AllowClobber -Force -Scope CurrentUser

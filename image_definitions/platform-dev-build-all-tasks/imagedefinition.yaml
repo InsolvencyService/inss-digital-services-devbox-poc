@@ -17,7 +17,7 @@ tasks:
     description: "Install Microsoft SQLServer Management Studio 21"
     parameters:
       package: Microsoft.SQLServerManagementStudio.21
-      
+
   - name: ~/winget
     parameters:
       package: OpenJS.NodeJS
@@ -49,6 +49,11 @@ tasks:
       directory: C:\repos
 
 userTasks:
+  - name: ~/winget
+    description: "Install Microsoft SQLServer 2022 Developer"
+    parameters:
+      package: Microsoft.SQLServer.2022.Developer
+
   - name: ~/winget
     description: "Install Postman"
     parameters:

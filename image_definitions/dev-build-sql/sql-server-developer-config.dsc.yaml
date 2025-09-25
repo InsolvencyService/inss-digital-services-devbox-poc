@@ -1,0 +1,20 @@
+# **************************************************************************************************
+# NOTE: Upload this file to: https://devboxdsc.blob.core.windows.net/dsc-files/sql-server-developer
+# **************************************************************************************************
+
+# WinGet DSC configuration for SQL Server 2022 Developer
+# Version 1.0
+$schema: https://aka.ms/configuration-dsc-schema/0.2
+properties:
+  configurationVersion: 0.2.0
+  resources:
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: sqlDeveloper
+      directives:
+        description: Install SQL Server 2022 Developer
+      settings:
+        id: Microsoft.SQLServer.2022.Developer
+        source: winget
+        ensure: Present
+        useLatest: true
+        arguments: "--silent  --accept-package-agreements --accept-source-agreements"
