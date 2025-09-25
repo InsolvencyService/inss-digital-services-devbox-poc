@@ -1,40 +1,9 @@
-$schema: 1.0
-name: platform-dev-build-windows11-vs2022-pro
-image: microsoftvisualstudio_visualstudioplustools_vs-2022-pro-general-win11-m365-gen2
-tasks:
-  - name: winget
-    description: "Install Node.js"
-    parameters:
-      package: OpenJS.NodeJS
-  - name: winget
-    description: "Install Microsoft .NET SDK 10.0 Preview"
-    parameters:
-      package: Microsoft.DotNet.SDK.Preview
-  - name: winget
-    description: "Install Install Microsoft SQLServer 2022 Developer"
-    parameters:
-      package: Microsoft.SQLServer.2022.Developer
-  - name: winget
-    description: "Install Microsoft SQLServer Management Studio 21"
-    parameters:
-      package: Microsoft.SQLServerManagementStudio.21
-  - name: winget
-    description: "Install Chrome"
-    parameters:
-      package: Google.Chrome
-  - name: winget
-    description: "Install Notepad++"
-    parameters:
-      package: Notepad++.Notepad++
-  - name: winget
-    description: "Install Azure CLI"
-    parameters:
-      package: Microsoft.AzureCLI
-  - name: git-clone
-    description: "Clone INSS Digital Platform POC to C:\\repos"
-    parameters:
-      repositoryUrl: https://github.com/InsolvencyService/inss-digital-platform-poc.git
-      directory: C:\repos
+# This image definition should run on top of the platform-dev-build-base image
+
+$schema: "1.0"
+name: "platform-dev-build-base"
+#image: microsoftwindowsdesktop_windows-ent-cpc_win11-24H2-ent-cpc
+image: platform-dev-build-base
 
 userTasks:
   - name: ~/winget
