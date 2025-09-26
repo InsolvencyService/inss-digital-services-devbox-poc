@@ -1,0 +1,16 @@
+# This image definition should run on top of the platform-dev-build-base image
+
+$schema: "1.0"
+name: "platform-dev-build"
+image: platform-dev-build-base
+
+userTasks:
+  - name: ~/winget
+    description: "Install Microsoft SQLServer 2022 Developer"
+    parameters:
+      package: Microsoft.SQLServer.2022.Developer
+
+  - name: ~/winget
+    description: "Install Postman"
+    parameters:
+      package: Postman.Postman
