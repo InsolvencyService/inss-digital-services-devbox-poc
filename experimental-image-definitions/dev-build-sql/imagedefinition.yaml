@@ -7,13 +7,14 @@ tasks:
     description: "Install SQL Server 2022 Developer"
     parameters:
       command: |
+        Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
         $installerPath = "C:\Temp\SQL2022.exe"
         if (-not (Test-Path "C:\Temp")) { New-Item -ItemType Directory -Path "C:\Temp" | Out-Null }
-        Invoke-WebRequest -Uri "https://go.microsoft.com/fwlink/?linkid=866662" -OutFile $installerPath
+        Invoke-WebRequest -Uri "https://go.microsoft.com/fwlink/?linkid=866662" -OutFile $installerPath -UseBasicParsing
         Start-Process -FilePath $installerPath -ArgumentList "/Q /ACTION=Install /FEATURES=SQLEngine /INSTANCENAME=MSSQLSERVER /IACCEPTSQLSERVERLICENSETERMS" -Wait -NoNewWindow
 
   - name: winget
-    description: "Install Microsoft SQLServer Management Studio 21"
+    description: "Install Microsoft SQL Server Management Studio 21"
     parameters:
       package: Microsoft.SQLServerManagementStudio.21
-
+      
