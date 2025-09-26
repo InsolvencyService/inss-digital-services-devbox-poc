@@ -3,9 +3,8 @@ name: "dev-build-vscode"
 image: microsoftwindowsdesktop_windows-ent-cpc_win11-24H2-ent-cpc
 
 tasks:
-  - name: ~/winget
+  - name: powershell
     description: "Install VSCode"
     parameters:
-      configurationFile: "C:\\WinGetConfig\\vscode-and-config.dsc.yaml"
-      downloadUrl: "https://devboxdsc.blob.core.windows.net/dsc-files/dev-build-vscode/vscode-and-config.dsc.yaml"
-      
+      command: |
+          Start-Process -FilePath "winget.exe" -ArgumentList "install --id Microsoft.VisualStudioCode --silent --accept-package-agreements --accept-source-agreements" -Wait -NoNewWindow
