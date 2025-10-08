@@ -1,0 +1,45 @@
+$schema: "1.0"
+name: "dotnet-dev-build"
+image: microsoftvisualstudio_visualstudioplustools_vs-2022-pro-general-win11-m365-gen2
+
+tasks:
+  - name: winget
+    description: "Install Microsoft SQLServer Management Studio 21"
+    parameters:
+      package: Microsoft.SQLServerManagementStudio.21
+
+  - name: ~/winget
+    parameters:
+      package: OpenJS.NodeJS
+
+  - name: ~/winget
+    description: "Install Chrome"
+    parameters:
+      package: Google.Chrome
+
+  - name: ~/winget
+    description: "Install Notepad++"
+    parameters:
+      package: Notepad++.Notepad++
+
+  - name: ~/winget
+    description: "Install Azure CLI"
+    parameters:
+      package: Microsoft.AzureCLI
+
+  - name: ~/winget
+    description: "Install Microsoft latest .NET SDK Preview"
+    parameters:
+      package: Microsoft.DotNet.SDK.Preview
+
+userTasks:
+  - name: ~/winget
+    description: "Install Microsoft SQLServer 2022 Developer"
+    parameters:
+      package: Microsoft.SQLServer.2022.Developer
+
+  - name: ~/winget
+    description: "Install Postman"
+    parameters:
+      package: Postman.Postman
+
