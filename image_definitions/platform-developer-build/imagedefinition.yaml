@@ -1,5 +1,5 @@
 $schema: "1.0"
-name: "dotnet-dev-build"
+name: "platform-developer-build"
 image: microsoftvisualstudio_visualstudioplustools_vs-2022-pro-general-win11-m365-gen2
 
 tasks:
@@ -27,19 +27,22 @@ tasks:
     parameters:
       package: Microsoft.AzureCLI
 
-  - name: ~/winget
-    description: "Install Microsoft latest .NET SDK Preview"
-    parameters:
-      package: Microsoft.DotNet.SDK.Preview
-
 userTasks:
-  - name: ~/winget
-    description: "Install Microsoft SQLServer 2022 Developer"
+  - name: git-clone
+    description: "Clone INSS Digital Platform to c:\\repos"
     parameters:
-      package: Microsoft.SQLServer.2022.Developer
+      repositoryUrl: https://github.com/InsolvencyService/inss-digital-services-platform.git
+      directory: c:\repos
 
   - name: ~/winget
     description: "Install Postman"
     parameters:
       package: Postman.Postman
+
+  - name: ~/winget
+    description: "Install Microsoft SQLServer 2022 Developer"
+    parameters:
+      package: Microsoft.SQLServer.2022.Developer
+
+
 
