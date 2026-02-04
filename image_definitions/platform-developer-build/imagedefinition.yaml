@@ -29,15 +29,23 @@ tasks:
       directory: c:\repos
       
 userTasks:
+  - name: install-sqlserver
+    description: "Install SQL Server 2022 Developer silently"
+    parameters:
+      command: |
+        $package = winget download Microsoft.SQLServer.2022.Developer --accept-package-agreements --accept-source-agreements --id Microsoft.SQLServer.2022.Developer --download-directory "C:\Temp\SQL2022"
+        $setup = Get-ChildItem "C:\Temp\SQL2022" -Recurse -Filter setup.exe | Select-Object -First 1
+
+        & $setup.FullName /Q /ACTION=Install /FEATURES=SQLENGINE `
+          /INSTANCENAME=MSSQLSERVER `
+          /SQLSVCACCOUNT="NT AUTHORITY\SYSTEM" `
+          /SQLSYSADMINACCOUNTS="Administrators" `
+          /IACCEPTSQLSERVERLICENSETERMS=True
+
   - name: ~/winget
     description: "Install Postman"
     parameters:
       package: Postman.Postman
-
-  - name: ~/winget
-    description: "Install Microsoft SQLServer 2022 Developer"
-    parameters:
-      package: Microsoft.SQLServer.2022.Developer
-
+      
 
 
