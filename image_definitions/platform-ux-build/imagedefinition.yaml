@@ -1,0 +1,33 @@
+$schema: "1.0"
+name: "platform-dev-build-all-tasks"
+image: microsoftwindowsdesktop_windows-ent-cpc_win11-25h2-ent-cpc
+
+tasks:
+  - name: ~/winget
+    parameters:
+      package: Microsoft.VisualStudioCode
+
+  - name: ~/winget
+    parameters:
+      package: OpenJS.NodeJS
+
+  - name: ~/winget
+    description: "Install Chrome"
+    parameters:
+      package: Google.Chrome
+
+  - name: ~/winget
+    description: "Install Notepad++"
+    parameters:
+      package: Notepad++.Notepad++
+
+  - name: ~/winget
+    description: "Install Azure CLI"
+    parameters:
+      package: Microsoft.AzureCLI
+
+  - name: git-clone
+    description: "Clone INSS Digital Platform Prototypes to C:\\repos"
+    parameters:
+      repositoryUrl: https://github.com/InsolvencyService/inss-digital-services-platform-prototypes.git
+      directory: C:\repos
