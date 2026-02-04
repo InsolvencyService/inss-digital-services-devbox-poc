@@ -22,18 +22,13 @@ tasks:
     parameters:
       package: Notepad++.Notepad++
 
-  - name: ~/winget
-    description: "Install Azure CLI"
-    parameters:
-      package: Microsoft.AzureCLI
-
-userTasks:
   - name: git-clone
     description: "Clone INSS Digital Platform to c:\\repos"
     parameters:
       repositoryUrl: https://github.com/InsolvencyService/inss-digital-services-platform.git
       directory: c:\repos
-
+      
+userTasks:
   - name: ~/winget
     description: "Install Postman"
     parameters:
