@@ -1,5 +1,5 @@
 $schema: "1.0"
-name: "platform-developer-build"
+name: "platform-developer-image-definition-yaml"
 image: microsoftvisualstudio_visualstudioplustools_vs-2022-pro-general-win11-m365-gen2
 
 tasks:
