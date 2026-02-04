@@ -26,6 +26,11 @@ tasks:
     parameters:
       package: Microsoft.AzureCLI
 
+  - name: ~/winget
+    description: "Install GitHub Desktop"
+    parameters:
+      package: GitHub.GitHubDesktop
+
   - name: git-clone
     description: "Clone INSS Digital Platform Prototypes to C:\\repos"
     parameters:
