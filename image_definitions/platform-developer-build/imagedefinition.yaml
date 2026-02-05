@@ -27,13 +27,29 @@ tasks:
     parameters:
       repositoryUrl: https://github.com/InsolvencyService/inss-digital-services-platform.git
       directory: c:\repos
+
+  - name: git-clone
+    description: "Clone INSS Digital Platform Prototypes to C:\\repos"
+    parameters:
+      repositoryUrl: https://github.com/InsolvencyService/inss-digital-services-platform-prototypes.git
+      directory: C:\repos
       
 userTasks:
-  - name: install-sqlserver
+  - name: ~/winget
+    description: "Install Postman"
+    parameters:
+      package: Postman.Postman
+
+  - name: powershell
     description: "Install SQL Server 2022 Developer silently"
     parameters:
       command: |
-        $package = winget download Microsoft.SQLServer.2022.Developer --accept-package-agreements --accept-source-agreements --id Microsoft.SQLServer.2022.Developer --download-directory "C:\Temp\SQL2022"
+        New-Item -ItemType Directory -Path "C:\Temp\SQL2022" -Force | Out-Null
+        winget download Microsoft.SQLServer.2022.Developer `
+          --accept-package-agreements --accept-source-agreements `
+          --id Microsoft.SQLServer.2022.Developer `
+          --download-directory "C:\Temp\SQL2022"
+
         $setup = Get-ChildItem "C:\Temp\SQL2022" -Recurse -Filter setup.exe | Select-Object -First 1
 
         & $setup.FullName /Q /ACTION=Install /FEATURES=SQLENGINE `
@@ -42,10 +58,6 @@ userTasks:
           /SQLSYSADMINACCOUNTS="Administrators" `
           /IACCEPTSQLSERVERLICENSETERMS=True
 
-  - name: ~/winget
-    description: "Install Postman"
-    parameters:
-      package: Postman.Postman
       
 
 
