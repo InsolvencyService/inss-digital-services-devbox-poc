@@ -1,23 +1,24 @@
 $schema: "1.0"
 name: "platform-developer-image-definition-yaml"
-image: "VS2006-Image-Definition"
+image: VS2006-Image-Definition
 
 tasks:
   - name: winget
-    description: "Install Microsoft SQLServer Management Studio 21"
+    description: "Install Microsoft SQL Server Management Studio 21"
     parameters:
       package: Microsoft.SQLServerManagementStudio.21
 
-  - name: ~/winget
+  - name: winget
+    description: "Install NodeJS"
     parameters:
       package: OpenJS.NodeJS
 
-  - name: ~/winget
+  - name: winget
     description: "Install Chrome"
     parameters:
       package: Google.Chrome
 
-  - name: ~/winget
+  - name: winget
     description: "Install Notepad++"
     parameters:
       package: Notepad++.Notepad++
@@ -27,14 +28,9 @@ tasks:
     parameters:
       repositoryUrl: https://github.com/InsolvencyService/inss-digital-services-platform.git
       directory: c:\repos
-      
+
 userTasks:
-  - name: ~/winget
+  - name: winget
     description: "Install Postman"
     parameters:
       package: Postman.Postman
-
-
-      
-
-
