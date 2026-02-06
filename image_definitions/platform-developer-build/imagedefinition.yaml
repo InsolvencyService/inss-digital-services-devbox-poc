@@ -1,6 +1,6 @@
 $schema: "1.0"
 name: "platform-developer-image-definition-yaml"
-image: microsoftvisualstudio_visualstudioplustools_vs-2022-pro-general-win11-m365-gen2
+image: microsoftvisualstudio_visualstudioplustools_vs2026-devbox
 
 tasks:
   - name: winget
@@ -27,12 +27,6 @@ tasks:
     parameters:
       repositoryUrl: https://github.com/InsolvencyService/inss-digital-services-platform.git
       directory: c:\repos
-
-  - name: git-clone
-    description: "Clone INSS Digital Platform Prototypes to C:\\repos"
-    parameters:
-      repositoryUrl: https://github.com/InsolvencyService/inss-digital-services-platform-prototypes.git
-      directory: C:\repos
       
 userTasks:
   - name: ~/winget
@@ -40,23 +34,6 @@ userTasks:
     parameters:
       package: Postman.Postman
 
-  - name: powershell
-    description: "Install SQL Server 2022 Developer silently"
-    parameters:
-      command: |
-        New-Item -ItemType Directory -Path "C:\Temp\SQL2022" -Force | Out-Null
-        winget download Microsoft.SQLServer.2022.Developer `
-          --accept-package-agreements --accept-source-agreements `
-          --id Microsoft.SQLServer.2022.Developer `
-          --download-directory "C:\Temp\SQL2022"
-
-        $setup = Get-ChildItem "C:\Temp\SQL2022" -Recurse -Filter setup.exe | Select-Object -First 1
-
-        & $setup.FullName /Q /ACTION=Install /FEATURES=SQLENGINE `
-          /INSTANCENAME=MSSQLSERVER `
-          /SQLSVCACCOUNT="NT AUTHORITY\SYSTEM" `
-          /SQLSYSADMINACCOUNTS="Administrators" `
-          /IACCEPTSQLSERVERLICENSETERMS=True
 
       
 
