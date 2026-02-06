@@ -32,7 +32,7 @@ tasks:
       package: GitHub.GitHubDesktop
 
   - name: git-clone
-    description: "Clone INSS Digital Platform Prototypes to C:\\repos"
+    description: "Clone INSS Digital Platform Prototypes to C:\\Prototypes"
     parameters:
-      repositoryUrl: https://github.com/InsolvencyService/inss-digital-services-platform-prototypes.git
-      directory: C:\repos
+      repositoryUrl: https://github.com/InsolvencyService/inss-digital-services-prototypes.git
+      directory: C:\Prototypes
