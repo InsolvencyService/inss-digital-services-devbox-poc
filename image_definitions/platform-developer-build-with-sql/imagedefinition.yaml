@@ -46,3 +46,15 @@ userTasks:
     description: "Install Postman"
     parameters:
       package: Postman.Postman
+
+  - name: powershell
+    description: "Install SQL Server 2022 Developer silently"
+    parameters:
+      command: |
+        winget download Microsoft.SQLServer.2022.Developer --accept-package-agreements --accept-source-agreements --download-directory "C:\SQL2022"
+        $setup = Get-ChildItem "C:\SQL2022" -Recurse -Filter setup.exe | Select-Object -First 1
+        & $setup.FullName /Q /ACTION=Install /FEATURES=SQLENGINE `
+          /INSTANCENAME=MSSQLSERVER `
+          /SQLSYSADMINACCOUNTS="Administrators" `
+          /IACCEPTSQLSERVERLICENSETERMS=True
+          
