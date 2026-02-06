@@ -1,6 +1,6 @@
 $schema: "1.0"
 name: "platform-developer-image-definition-yaml"
-image: VS2006-Image-Definition
+image: AdditionalImages/VS2006-Image-Definition@latest
 
 tasks:
   - name: winget
