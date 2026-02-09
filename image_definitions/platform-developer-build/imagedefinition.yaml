@@ -22,32 +22,10 @@ tasks:
     description: "Install Notepad++"
     parameters:
       package: Notepad++.Notepad++
-
-  - name: git-clone
-    description: "Clone INSS Digital Platform to c:\\repos"
-    parameters:
-      repositoryUrl: https://github.com/InsolvencyService/inss-digital-services-platform.git
-      directory: c:\repos
-
-  - name: git-clone
-    description: "Clone INSS Digital Platform POC to c:\\repos"
-    parameters:
-      repositoryUrl: https://github.com/InsolvencyService/inss-digital-platform-poc.git
-      directory: c:\repos
-
-  - name: git-clone
-    description: "Clone INSS Digital Platform Prototypes to C:\\Prototypes"
-    parameters:
-      repositoryUrl: https://github.com/InsolvencyService/inss-digital-services-prototypes.git
-      directory: C:\Prototypes
-      
+     
 userTasks:
   - name: winget
     description: "Install Postman"
     parameters:
       package: Postman.Postman
       
-  - name: ~/winget
-    description: "Install Microsoft SQLServer 2022 Developer"
-    parameters:
-      package: Microsoft.SQLServer.2022.Developer
