@@ -53,44 +53,34 @@ userTasks:
       command: |
         $ErrorActionPreference = 'Stop'
 
+        # Paths
         $dlRoot   = 'C:\SQLDl'
         $mediaDir = 'C:\SQL2022\Media'
+
         New-Item -ItemType Directory -Force -Path $dlRoot, $mediaDir | Out-Null
 
-        # 1) Download the web bootstrapper via winget
+        # 1) Download the SQL bootstrapper via winget
         winget download Microsoft.SQLServer.2022.Developer `
-          --accept-package-agreements --accept-source-agreements `
+          --accept-package-agreements `
+          --accept-source-agreements `
           --download-directory $dlRoot
 
-        # Find the downloaded bootstrapper (*.exe) - not setup.exe yet
+        # Locate the downloaded bootstrapper
         $bootstrap = Get-ChildItem $dlRoot -Filter *.exe | Select-Object -First 1
         if (-not $bootstrap) { throw "SQL bootstrapper not found in $dlRoot" }
 
-        # 2) Use bootstrapper to download full media (CAB set) silently
-        #    Options: /MEDIATYPE=CAB or ISO. CAB avoids mounting.
-        Start-Process -FilePath $bootstrap.FullName -ArgumentList @(
-          '/ACTION=Download',
-          "/MEDIATYPE=CAB",
-          "/MEDIAPATH=$mediaDir",
-          '/QUIET'
-        ) -Wait -NoNewWindow
+        # 2) Use bootstrapper to download full SQL media
+        $downloadArgs = "/ACTION=Download /MEDIATYPE=CAB /MEDIAPATH=$mediaDir /QUIET"
+        Start-Process -FilePath $bootstrap.FullName -ArgumentList $downloadArgs -Wait -NoNewWindow
 
-        # Verify setup.exe exists in media folder (e.g., C:\SQL2022\Media\Developer_ENU\setup.exe)
+        # Locate setup.exe inside media folder
         $setup = Get-ChildItem $mediaDir -Recurse -Filter setup.exe | Select-Object -First 1
         if (-not $setup) { throw "SQL setup.exe not found under $mediaDir" }
 
-        # 3) Run setup.exe silently (core engine only; add features as needed)
-        $args = @(
-          '/Q',
-          '/ACTION=Install',
-          '/FEATURES=SQLENGINE',
-          '/INSTANCENAME=MSSQLSERVER',
-          '/SQLSYSADMINACCOUNTS="Administrators"',
-          '/IACCEPTSQLSERVERLICENSETERMS=TRUE'
-        )
-        Start-Process -FilePath $setup.FullName -ArgumentList $args -Wait -NoNewWindow
+        # 3) Install SQL Server silently
+        $installArgs = "/Q /ACTION=Install /FEATURES=SQLENGINE /INSTANCENAME=MSSQLSERVER /SQLSYSADMINACCOUNTS=""Administrators"" /IACCEPTSQLSERVERLICENSETERMS=TRUE"
+        Start-Process -FilePath $setup.FullName -ArgumentList $installArgs -Wait -NoNewWindow
 
-        # Optional: basic service check
+        # 4) Basic verification
         Start-Sleep -Seconds 5
         sc.exe query MSSQLSERVER | Out-String | Write-Host
-    
