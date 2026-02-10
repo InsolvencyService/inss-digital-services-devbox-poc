@@ -14,14 +14,15 @@ tasks:
       package: OpenJS.NodeJS
 
   - name: winget
-    description: "Install Chrome"
-    parameters:
-      package: Google.Chrome
-
-  - name: winget
     description: "Install Notepad++"
     parameters:
       package: Notepad++.Notepad++
+
+  - name: git-clone
+    description: "Clone INSS Digital Platform to c:\\repos"
+    parameters:
+      repositoryUrl: https://github.com/InsolvencyService/inss-digital-services-platform.git
+      directory: c:\repos
      
 userTasks:
   - name: winget
