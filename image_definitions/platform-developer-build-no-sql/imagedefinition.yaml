@@ -1,0 +1,48 @@
+$schema: "1.0"
+name: "platform-developer-image-definition-yaml"
+image: AdditionalImages/VS2006-Image-Definition@1.0.0
+
+tasks:
+  - name: winget
+    description: "Install Microsoft SQL Server Management Studio 21"
+    parameters:
+      package: Microsoft.SQLServerManagementStudio.21
+
+  - name: winget
+    description: "Install NodeJS"
+    parameters:
+      package: OpenJS.NodeJS
+
+  - name: winget
+    description: "Install Notepad++"
+    parameters:
+      package: Notepad++.Notepad++
+
+  - name: winget
+    description: "Install Chrome"
+    parameters:
+      package: Google.Chrome
+  
+  - name: git-clone
+    description: "Clone INSS Digital Platform to c:\\repos"
+    parameters:
+      repositoryUrl: https://github.com/InsolvencyService/inss-digital-services-platform.git
+      directory: c:\repos
+
+  - name: git-clone
+    description: "Clone INSS Digital Platform POC to c:\\repos"
+    parameters:
+      repositoryUrl: https://github.com/InsolvencyService/inss-digital-platform-poc.git
+      directory: c:\repos
+
+  - name: git-clone
+    description: "Clone INSS Digital Platform Prototypes to C:\\Prototypes"
+    parameters:
+      repositoryUrl: https://github.com/InsolvencyService/inss-digital-services-prototypes.git
+      directory: C:\Prototypes
+      
+userTasks:
+  - name: winget
+    description: "Install Postman"
+    parameters:
+      package: Postman.Postman

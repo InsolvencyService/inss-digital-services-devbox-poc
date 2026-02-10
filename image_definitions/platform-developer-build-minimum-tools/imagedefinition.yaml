@@ -1,0 +1,11 @@
+$schema: "1.0"
+name: "platform-developer-image-definition-yaml"
+image: AdditionalImages/VS2006-Image-Definition@1.0.0
+
+tasks:
+  - name: git-clone
+    description: "Clone INSS Digital Platform to c:\\repos"
+    parameters:
+      repositoryUrl: https://github.com/InsolvencyService/inss-digital-services-platform.git
+      directory: c:\repos
+   
