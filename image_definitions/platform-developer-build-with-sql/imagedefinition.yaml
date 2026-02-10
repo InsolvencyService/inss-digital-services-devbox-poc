@@ -1,5 +1,5 @@
 $schema: "1.0"
-name: "platform-developer-image-definition-yaml"
+name: "platform-developer-with-sql-image-definition-yaml"
 image: AdditionalImages/VS2006-Image-Definition@1.0.0
 
 tasks:
