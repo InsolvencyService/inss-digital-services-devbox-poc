@@ -3,5 +3,12 @@ name: "yaml-test"
 image: AdditionalImages/VS2006-Image-Definition@1.0.0
 
 tasks: []
-userTasks: []
+
+userTasks:
+  - name: git-clone
+    description: "Clone INSS Digital Platform to c:\\repos"
+    parameters:
+      repositoryUrl: https://github.com/InsolvencyService/inss-digital-services-platform.git
+      directory: c:\repos
+
  
