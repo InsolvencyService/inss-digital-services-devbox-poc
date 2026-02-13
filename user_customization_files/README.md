@@ -63,16 +63,11 @@ tasks:
 
 userTasks:
   - name: winget
-    description: "Install Chrome"
-    parameters:
-      package: Google.Chrome
-
-  - name: winget
     description: "Install Postman"
     parameters:
       package: Postman.Postman
 
-  - name: ~/winget
+  - name: winget
     description: "Install Microsoft SQLServer 2022 Developer"
     parameters:
       package: Microsoft.SQLServer.2022.Developer
