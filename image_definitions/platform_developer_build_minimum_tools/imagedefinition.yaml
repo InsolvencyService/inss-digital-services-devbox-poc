@@ -1,5 +1,5 @@
 $schema: "1.0"
-name: "yaml-test"
+name: "platform-developer-minimum-tools-image-definition-yaml"
 image: AdditionalImages/VS2006-Image-Definition@1.0.0
 
 tasks: []
