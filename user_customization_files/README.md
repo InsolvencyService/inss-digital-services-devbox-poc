@@ -11,9 +11,9 @@ For example, you can create a DevBox image that contains only Visual Studio 2026
 3. Enter any name for the DevBox instance.
 4. Select an image from the Project list (e.g., `Platform-Developer-Image-8vCPU-32GB-256GB`).
 5. Check the **Apply customizations** checkbox.
-6. Choose to either upload a customizations YAML file from disk or download from a repository.
+6. Choose to either upload a customizations YAML file from disk or download from a Azure DevOps repository.
 7. After uploading, click the **Validate** button.
-8. Click the **Create** button.
+8. Click the **Continue** then the **Create** buttons.
 
 ---
 
