@@ -1,6 +1,5 @@
 $schema: "1.0"
-name: "platform-developer-with-sql-image-definition-yaml"
-image: AdditionalImages/VS2006-Image-Definition@1.0.0
+name: "platform-developer-user-customizations-file"
 
 tasks:
   - name: winget
@@ -18,11 +17,6 @@ tasks:
     parameters:
       package: Notepad++.Notepad++
 
-  - name: winget
-    description: "Install Chrome"
-    parameters:
-      package: Google.Chrome
-  
   - name: git-clone
     description: "Clone INSS Digital Platform to c:\\repos"
     parameters:
@@ -40,15 +34,14 @@ tasks:
     parameters:
       repositoryUrl: https://github.com/InsolvencyService/inss-digital-services-prototypes.git
       directory: C:\Prototypes
-      
+
 userTasks:
   - name: winget
     description: "Install Postman"
     parameters:
       package: Postman.Postman
-      
-  - name: ~/winget
+
+  - name: winget
     description: "Install Microsoft SQLServer 2022 Developer"
     parameters:
       package: Microsoft.SQLServer.2022.Developer
-
